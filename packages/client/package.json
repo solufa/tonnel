@@ -1,0 +1,29 @@
+{
+  "name": "tonnel",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "aspida --watch",
+    "build": "npm run generate",
+    "lint": "run-p lint:js lint:prettier",
+    "lint:js": "eslint --ext .ts,..js --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check \"./**/*.{ts,js}\" --ignore-path .gitignore",
+    "lint:fix": "npm run lint:js -- --fix && prettier --write \"./**/*.{ts,js}\" --ignore-path .gitignore",
+    "generate": "aspida",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:updateSnapshot": "vitest -u",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aspida/axios": "^1.14.0",
+    "aspida": "^1.14.0",
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "notios": "^0.4.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
